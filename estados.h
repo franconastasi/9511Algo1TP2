@@ -2,7 +2,7 @@
 #define ESTADOS__H
 
 typedef enum {
-	ST_EXIT = 0,
+	ST_EXIT,
 	ST_EXIT_FAILURE,
 	ST_MAIN_MENU,
 	ST_ASK_PARAM,
