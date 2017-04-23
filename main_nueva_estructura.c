@@ -222,7 +222,7 @@ void  expon (int muestreo, int precision, float ti,float delta_t)
 	}
 }
 
-void escalon (int muestreo, int precision, float ti,float delta_t)
+void escalon (int muestreo, int precision, float ti, float delta_t)
 {
 	int i;
 	float time;
@@ -233,12 +233,8 @@ void escalon (int muestreo, int precision, float ti,float delta_t)
 	{
 		time=ti+i*delta_t;
 
-		if(time<0)
-		{
-			printf("\n%2.*f %50.*f\n" ,precision,time,precision,0.0);
-	                continue;
-		}
-		printf("\n%2.*f\t%50.*f\n" ,precision,time,precision,1.0);
+		printf("\n%2.*f %50.*f\n", precision, time, precision, (time < 0)? 0 : 1);
+	        
 	}
 }
 void parh (int muestreo,int precision,float ti,float delta_t)
