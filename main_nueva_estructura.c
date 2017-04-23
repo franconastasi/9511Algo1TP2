@@ -193,8 +193,8 @@ void mrua (int muestreo,int precision,float ti,float delta_t)
 
 	for (i=0;i<muestreo;i++)
 	{
-	        time=ti+delta_t*i;
-	        fmrua=posin+vi*time+(pow(time,2))*ac;
+	        time = ti + delta_t * i;
+	        fmrua = posin + vi * time + time * time * ac;
 	        printf("\n%2.*f\t%50.*f\n" ,precision,time,precision,fmrua);
 	}
 }
@@ -271,8 +271,8 @@ void parh (int muestreo,int precision,float ti,float delta_t)
 
 	for (i = 0; i<muestreo; i++)
 	{
-	  	time=ti+delta_t*i;
-		fparh=(pow(time/x_a,2))+(pow(time/x_b,2));
+	  	time = ti+delta_t*i;
+		fparh = (time/x_a) * (time/x_a) + (time/x_b) * (time/x_b);
 
 		printf("\n(%.*f,%.*f)\t %50.4f\n",precision,time,precision,time,fparh);
 	}
@@ -298,7 +298,7 @@ void pedir_tiempo_final(float* ti, float* tf){
 		{
 			printf ("%s\n", MSG_TIEMPO_FINAL_INVALID);
 			scanf ("%f", tf);
-		}while (*tf<=*ti);
+		}while (*tf <= *ti);
 }
 void pedir_muestreo(int* muestreo){
 	do
