@@ -63,6 +63,9 @@
 #define SYMBOL_7TH_OPTION "7."
 
 
+#define SYMBOL_SAME_PARAM "1."
+#define SYMBOL_NEW_PARAM "2."
+
 #define MSG_INITIAL_FST_OPTION "Muestrear"
 #define MSG_INITIAL_EXIT_OPTION "Salir del programa"
 
@@ -77,18 +80,21 @@
 #define MSG_ASK_OPTION_FUNC_MENU "Por favor, ingrese el número de opción de la función que quiere muestrear"
 
 #define OPTION_EXIT 0
-#define OPTION_FST 1
-#define OPTION_SND 2
-#define OPTION_TRD 3
-#define OPTION_4TH 4
-#define OPTION_5TH 5
-#define OPTION_6TH 6
-#define OPTION_7TH 7
+#define OPTION_SENO 1
+#define OPTION_LOG_10 2
+#define OPTION_LOG_LIN 3
+#define OPTION_EXP 4
+#define OPTION_ESCALON 5
+#define OPTION_MRUA 6
+#define OPTION_PAR 7
 
-#define MSG_SAMPLE_ENDING "Se ha realizado el muestreo correctamente, por favor elija una de las siguientes opciones:"
-#define MSG_SAMPLE_ENDING_FST_OPTION "Muestrear función con distintos parámetros"
-#define MSG_SAMPLE_ENDING_SND_OPTION "Muestrear función con los parámetros ya asignados"
-#define MSG_SAMPLE_ENDING_EXIT_OPTION "Salir del programa"
+#define OPTION_SAME_PARAM 1
+#define OPTION_NEW_PARAM 2
+
+#define MSG_MAIN_MENU "Elija una de las siguientes opciones:"
+#define MSG_MAIN_MENU_NEW_PARAM "Muestrear función con distintos parámetros"
+#define MSG_MAIN_MENU_SAME_PARAM "Muestrear función con los parámetros ya asignados"
+#define MSG_MAIN_MENU_EXIT_OPTION "Salir del programa"
 
 #define MIN_CANT_SAMPLE_VALUE 0
 #define MIN_PRECIS_VALUE 0
