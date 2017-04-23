@@ -1,3 +1,6 @@
+#ifndef MSJ_ES__H
+#define MSJ_ES__H
+
 #define MSG_TIEMPO_INICIAL_INVALIDO "El intervalo a muestrear no está incluido en el dominio de la función. Ingrese un nuevo valor de tiempo inicial \n"
 #define MSG_TIEMPO_FINAL_INVALID "Ingrese un valor de tiempo final, mayor al tiempo inicial \n"
 
@@ -89,3 +92,5 @@
 
 #define MIN_CANT_SAMPLE_VALUE 0
 #define MIN_PRECIS_VALUE 0
+
+#endif
