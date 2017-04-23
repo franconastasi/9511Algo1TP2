@@ -9,7 +9,7 @@
 
 int main (void)
 {
-	int muestreo, precision, menu, funcion, opcion_fin_muestreo, confirmacion;
+	int num_muestras, precision, opcion_inicio, funcion, menu, confirmacion;
 	float ti, tf, delta_t;
 	E_ESTADO estado = ST_INITIAL;
 
@@ -22,23 +22,23 @@ int main (void)
 				return EXIT_FAILURE;
 
 			case ST_INITIAL:
-				imprimir_menu_principal();
-				if (scanf("%d",&menu) != 1)
+				imprimir_menu_inicial(void);
+				if (scanf("%d",&opcion_inicio) != 1)
 				{
 					fprintf(stderr, "%s", MSG_ERROR);
 					estado = ST_EXIT_FAILURE;
 				}
-				else 	if (menu == OPTION_EXIT)	estado = ST_EXIT;
+				else 	if (opcion_inicio == OPTION_EXIT)	estado = ST_EXIT;
 					else	estado = ST_ASK_PARAM;
 				break;
 
 			case ST_ASK_PARAM:
 				pedir_tiempo_inicial(&ti);
 				pedir_tiempo_final(&ti,&tf);
-				pedir_muestreo(&muestreo);
-				delta_t = (tf - ti)/muestreo;
+				pedir_muestreo(&num_muestras);
+				delta_t = (tf - ti)/num_muestras;
 				pedir_precision(&precision);
-				printf ("%s\n \n %f \n %f \n %d \n %d \n \n %s\n", MSG_CONFIR1, ti, tf, muestreo, precision, MSG_CONFIR2);	
+				printf ("%s\n \n %f \n %f \n %d \n %d \n \n %s\n", MSG_CONFIR1, ti, tf, num_muestras, precision, MSG_CONFIR2);	
 				scanf ("%d", &confirmacion);
 				if (confirmacion)
 				{
@@ -47,7 +47,7 @@ int main (void)
 				break;
 
 			case ST_FUNC_MENU:
-				imprimir_menu_funciones();
+				imprimir_menu_funciones(void);
 				scanf ("%d", &funcion);
 				switch (funcion)
 				{
@@ -55,31 +55,31 @@ int main (void)
 						estado = ST_MAIN_MENU;
 						break;
 					case OPTION_SENO:
-						senoidal (muestreo, precision, ti, delta_t);
+						senoidal (num_muestras, precision, ti, delta_t);
 						estado = ST_MAIN_MENU;
 						break;
 					case OPTION_LOG_10:
-						muestrear_log_10 (&ti, & tf, &delta_t, muestreo, precision);
+						muestrear_log_10 (&ti, & tf, &delta_t, num_muestras, precision);
 						estado = ST_MAIN_MENU;
 						break;
 					case OPTION_LOG_LIN:
-						muestrear_log_lineal(&ti, &tf, &delta_t, muestreo, precision);
+						muestrear_log_lineal(&ti, &tf, &delta_t, num_muestras, precision);
 						estado = ST_MAIN_MENU;
 						break;
 					case OPTION_EXP:
-						expon (muestreo, precision, ti, delta_t);
+						expon (num_muestras, precision, ti, delta_t);
 						estado = ST_MAIN_MENU;
 						break;
 					case OPTION_ESCALON:
-						escalon (muestreo, precision, ti, delta_t);
+						escalon (num_muestras, precision, ti, delta_t);
 						estado = ST_MAIN_MENU;
 						break;
 					case OPTION_MRUA:
-						mrua (muestreo, precision, ti, delta_t);
+						mrua (num_muestras, precision, ti, delta_t);
 						estado = ST_MAIN_MENU;
 						break;
 					case OPTION_PAR:
-						parh (muestreo, precision, ti, delta_t);
+						parh (num_muestras, precision, ti, delta_t);
 						estado = ST_MAIN_MENU;
 						break;
 					default: 	
@@ -88,9 +88,9 @@ int main (void)
 				break;
 
 			case ST_MAIN_MENU:
-				imprimir_menu_finalizado_muestreo();
-				scanf("%d", &opcion_fin_muestreo);
-				switch(opcion_fin_muestreo)
+				imprimir_menu_principal(void);
+				scanf("%d", &menu);
+				switch(menu)
 				{
 					case OPTION_EXIT:
 						estado = ST_EXIT;
@@ -281,7 +281,7 @@ void parh (int muestreo,int precision,float ti,float delta_t)
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
-void imprimir_menu_principal(void){
+void imprimir_menu_inicial(void){
 	printf("%s %s\n", SYMBOL_FST_OPTION, MSG_INITIAL_FST_OPTION);
 	printf("%s %s\n", SYMBOL_EXIT_MENU_OPTION, MSG_INITIAL_EXIT_OPTION);
 }
@@ -365,7 +365,7 @@ void muestrear_log_lineal(float* ti, float* tf, float* delta_t, int muestreo, in
 		loglineal (muestreo, precision, *ti, *delta_t);
 }
 
-void imprimir_menu_finalizado_muestreo(void){
+void imprimir_menu_principal(void){
 	printf("\n \n \n %s\n", MSG_MAIN_MENU);
 	printf("%s %s\n", SYMBOL_SAME_PARAM, MSG_MAIN_MENU_SAME_PARAM_OPTION);
 	printf("%s %s\n", SYMBOL_NEW_PARAM, MSG_MAIN_MENU_NEW_PARAM_OPTION);
