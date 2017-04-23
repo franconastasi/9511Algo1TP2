@@ -1,3 +1,5 @@
+#ifndef ESTADOS__H
+#define ESTADOS__H
 typedef enum {
 	ST_EXIT = 0,
 	ST_EXIT_FAILURE,
@@ -6,3 +8,4 @@ typedef enum {
 	ST_FUNC_MENU,
 	ST_SMPLE_ENDING_MENU
 } E_ESTADO;
+#endif
