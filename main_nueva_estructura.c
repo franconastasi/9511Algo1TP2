@@ -39,7 +39,7 @@ int main (void)
 				pedir_muestreo(&muestreo);
 				delta_t = (tf - ti)/muestreo;
 				pedir_precision(&precision);
-				printf ("%s\n \n %f \n %f \n %d \n %d \n \n %s", MSG_CONFIR1, ti, tf, muestreo, precision, MSG_CONFIR2);	
+				printf ("%s\n \n %f \n %f \n %d \n %d \n \n %s\n", MSG_CONFIR1, ti, tf, muestreo, precision, MSG_CONFIR2);	
 				scanf ("%d", &confirmacion);
 				if (confirmacion)
 				{
