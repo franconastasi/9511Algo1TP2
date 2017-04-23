@@ -63,8 +63,8 @@
 #define SYMBOL_7TH_OPTION "7."
 
 
-#define MSG_MAIN_MANU_FST_OPTION "Muestrear"
-#define MSG_MAIN_MANU_EXIT_OPTION "Salir del programa"
+#define MSG_INITIAL_FST_OPTION "Muestrear"
+#define MSG_INITIAL_EXIT_OPTION "Salir del programa"
 
 #define MSG_FUNC_MENU_FST_OPTION "Senoidal"
 #define MSG_FUNC_MENU_SND_OPTION "Logarítmica"
@@ -86,8 +86,8 @@
 #define OPTION_7TH 7
 
 #define MSG_SAMPLE_ENDING "Se ha realizado el muestreo correctamente, por favor elija una de las siguientes opciones:"
-#define MSG_SAMPLE_ENDING_FST_OPTION "Volver a muestrear con distintos parámetros"
-#define MSG_SAMPLE_ENDING_SND_OPTION "Muestrear otra función con los mismo parámetros"
+#define MSG_SAMPLE_ENDING_FST_OPTION "Muestrear función con distintos parámetros"
+#define MSG_SAMPLE_ENDING_SND_OPTION "Muestrear función con los parámetros ya asignados"
 #define MSG_SAMPLE_ENDING_EXIT_OPTION "Salir del programa"
 
 #define MIN_CANT_SAMPLE_VALUE 0
