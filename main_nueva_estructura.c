@@ -13,8 +13,10 @@ int main (void)
 	float ti, tf, delta_t;
 	E_ESTADO estado = ST_MAIN_MENU;
 
-	while(estado){
-		switch (estado){
+	do
+	{
+		switch (estado)
+		{
 
 			case ST_EXIT_FAILURE:
 				return EXIT_FAILURE;
@@ -50,7 +52,8 @@ int main (void)
 			case ST_FUNC_MENU:
 				imprimir_menu_funciones();
 				scanf ("%d", &funcion);
-				switch (funcion){
+				switch (funcion)
+				{
 					case OPTION_EXIT:
 						estado = ST_MAIN_MENU;
 						break;
@@ -90,7 +93,8 @@ int main (void)
 			case ST_SMPLE_ENDING_MENU:
 				imprimir_menu_finalizado_muestreo();
 				scanf("%d", &opcion_fin_muestreo);
-				switch(opcion_fin_muestreo){
+				switch(opcion_fin_muestreo)
+				{
 					case OPTION_EXIT:
 						estado = ST_EXIT;
 						break;
@@ -104,6 +108,7 @@ int main (void)
 				}
 		}
 	}
+	while(estado != ST_EXIT);
 	return EXIT_SUCCESS;
 }
 
