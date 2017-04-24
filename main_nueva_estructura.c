@@ -22,10 +22,10 @@ int main (void)
 				return EXIT_FAILURE;
 
 			case ST_INITIAL:
-				imprimir_menu_inicial(void);
+				imprimir_menu_inicial();
 				if (scanf("%d",&opcion_inicio) != 1)
 				{
-					fprintf(stderr, "%s", MSG_ERROR);
+					fprintf(stderr, "%s\n", MSG_ERROR);
 					estado = ST_EXIT_FAILURE;
 				}
 				else 	if (opcion_inicio == OPTION_EXIT)	estado = ST_EXIT;
@@ -40,14 +40,16 @@ int main (void)
 				pedir_precision(&precision);
 				printf ("%s\n \n %f \n %f \n %d \n %d \n \n %s\n", MSG_CONFIR1, ti, tf, num_muestras, precision, MSG_CONFIR2);	
 				scanf ("%d", &confirmacion);
-				if (confirmacion)
+				if (confirmacion==1)
 				{
 					estado = ST_FUNC_MENU;
+				}else {
+					printf("%s\n", MSG_NEGATIVE_CONFIR);
 				}
 				break;
 
 			case ST_FUNC_MENU:
-				imprimir_menu_funciones(void);
+				imprimir_menu_funciones();
 				scanf ("%d", &funcion);
 				switch (funcion)
 				{
@@ -88,7 +90,7 @@ int main (void)
 				break;
 
 			case ST_MAIN_MENU:
-				imprimir_menu_principal(void);
+				imprimir_menu_principal();
 				scanf("%d", &menu);
 				switch(menu)
 				{
@@ -165,7 +167,7 @@ void log_10 (int muestreo, int precision, float ti,float delta_t)
 	int i;
 	float time,flog_10;
 
-	printf("%s\n",MSG_LOG10_DESCRIP);
+	printf("%s\n\n",MSG_LOG10_DESCRIP);
 
 	for(i=0; i<muestreo ; i++)
 	{
@@ -213,7 +215,7 @@ void  expon (int muestreo, int precision, float ti,float delta_t)
 	printf("%s\n",MSG_PARAM_EXP_CONST_DOS);
 	scanf("%f",&k2);
 
-	printf("%s", MSG_XFX);
+	printf("%s\n", MSG_XFX);
 
 	for(i=0;i<muestreo;i++)
 	{
@@ -228,14 +230,15 @@ void escalon (int muestreo, int precision, float ti, float delta_t)
 {
 	int i;
 	float time;
-	
-	printf("%s", MSG_XFX);
+	printf("%s\n", MSG_ESCALON_DESCRIP);
+
+	printf("%s\n", MSG_XFX);
 	
 	for(i=0;i<=muestreo;i++)
 	{
 		time=ti+i*delta_t;
 
-		printf("\n%2.*f %50.*f\n", precision, time, precision, (time < 0)? 0 : 1);
+		printf("\n%2.*f %50.*f\n", precision, time, precision, (time < 0)? 0.0 : 1.0);
 	        
 	}
 }
@@ -246,26 +249,29 @@ void parh (int muestreo,int precision,float ti,float delta_t)
 
 	printf("%s\n",MSG_HIP_DESCRIP);
 
-	printf("%s\n",MSG_HIP_X_A );
-	scanf("%f",&x_a);
-
-	while (x_a==0) 
+	do
 	{
-			
-		printf("%s\n",MSG_HIP_ERROR_A0B);
+		printf("%s\n",MSG_HIP_X_A );
 		scanf("%f",&x_a);
-	}
+		if (x_a==0)
+		{
+			printf("%s\n",MSG_INVALID_INPUT);
+		}
+	}while (x_a==0); 
 
-	printf("%s\n",MSG_HIP_X_B );
-	scanf("%f",&x_b);
 
-	while (x_b==0) 
+	do
 	{
-		printf("%s\n",MSG_HIP_ERROR_A0B);
+		printf("%s\n",MSG_HIP_X_B );
 		scanf("%f",&x_b);
-	}
+		if (x_b==0)
+		{
+			printf("%s\n",MSG_INVALID_INPUT);
+		}
+	}while (x_b==0); 
+
 	
-	printf("%s", MSG_XFXY);
+	printf("%s\n", MSG_XFXY);
 
 	for (i = 0; i<muestreo; i++)
 	{
@@ -281,10 +287,7 @@ void parh (int muestreo,int precision,float ti,float delta_t)
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
-void imprimir_menu_inicial(void){
-	printf("%s %s\n", SYMBOL_FST_OPTION, MSG_INITIAL_FST_OPTION);
-	printf("%s %s\n", SYMBOL_EXIT_MENU_OPTION, MSG_INITIAL_EXIT_OPTION);
-}
+
 
 void pedir_tiempo_inicial(float * ti){
 	printf("%s\n", MSG_PARAM_TI);								
@@ -296,6 +299,10 @@ void pedir_tiempo_final(float* ti, float* tf){
 		{
 			printf ("%s\n", MSG_TIEMPO_FINAL_INVALID);
 			scanf ("%f", tf);
+			if (*tf <= *ti)
+			{
+				printf("%s\n",MSG_INVALID_INPUT);
+			}
 		}while (*tf <= *ti);
 }
 void pedir_muestreo(int* muestreo){
@@ -303,6 +310,10 @@ void pedir_muestreo(int* muestreo){
 	{
 		printf("%s\n", MSG_PARAM_MUEST);		
 		scanf("%d", muestreo);
+		if (*muestreo <= MIN_CANT_SAMPLE_VALUE)
+			{
+				printf("%s\n",MSG_INVALID_INPUT);
+			}
 	}while (*muestreo <= MIN_CANT_SAMPLE_VALUE);
 }
 
@@ -311,6 +322,10 @@ void pedir_precision(int* precision){
 	{
 		printf("%s\n", MSG_PARAM_PRES);				
 		scanf("%d", precision);
+		if (*precision <= MIN_PRECIS_VALUE)
+			{
+				printf("%s\n",MSG_INVALID_INPUT);
+			}
 	}
 	while (*precision <= MIN_PRECIS_VALUE);
 }
@@ -372,7 +387,10 @@ void imprimir_menu_principal(void){
 	printf("%s %s\n", SYMBOL_EXIT_MENU_OPTION, MSG_SAMPLE_ENDING_EXIT_OPTION);
 }
 
-
+void imprimir_menu_inicial(void){
+	printf("%s %s\n", SYMBOL_FST_OPTION, MSG_INITIAL_FST_OPTION);
+	printf("%s %s\n\n", SYMBOL_EXIT_MENU_OPTION, MSG_INITIAL_EXIT_OPTION);
+}
 
 
 
