@@ -47,53 +47,25 @@
 #define MSG_PARAM_PRES "Insert precision"
 #define MSG_ERROR "The character is not valid"
 
-#define SYMBOL_EXIT_MENU_OPTION "0."
-#define SYMBOL_FST_OPTION "1."
-#define SYMBOL_SND_OPTION "2."
-#define SYMBOL_TRD_OPTION "3."
-#define SYMBOL_4TH_OPTION "4."
-#define SYMBOL_5TH_OPTION "5."
-#define SYMBOL_6TH_OPTION "6."
-#define SYMBOL_7TH_OPTION "7."
-
-
-#define SYMBOL_SAME_PARAM "1."
-#define SYMBOL_NEW_PARAM "2."
-
 #define MSG_INITIAL_FST_OPTION "Sample"
 #define MSG_INITIAL_EXIT_OPTION "Exit program"
 
-#define MSG_FUNC_MENU_FST_OPTION "Sine"
-#define MSG_FUNC_MENU_SND_OPTION "Logarithm"
-#define MSG_FUNC_MENU_TRD_OPTION "Linear logarithm"
-#define MSG_FUNC_MENU_4TH_OPTION "Exponential"
-#define MSG_FUNC_MENU_5TH_OPTION "Step"
-#define MSG_FUNC_MENU_6TH_OPTION "Uniform acceleration"
-#define MSG_FUNC_MENU_7TH_OPTION "Paraboloid"
+#define MSG_FUNC_MENU_OPT_SEN "Sine"
+#define MSG_FUNC_MENU_OPT_LOG "Logarithm"
+#define MSG_FUNC_MENU_OPT_LOG_LIN "Linear logarithm"
+#define MSG_FUNC_MENU_OPT_EXPON "Exponential"
+#define MSG_FUNC_MENU_OPT_STEP "Step"
+#define MSG_FUNC_MENU_OPT_MRUA "Uniform acceleration"
+#define MSG_FUNC_MENU_OPT_PARH "Paraboloid"
 #define MSG_FUNC_MENU_EXIT_OPTION "Return to main menu"
 #define MSG_ASK_OPTION_FUNC_MENU "Por favor, ingrese el número de opción de la función que quiere muestrear"
-
-#define OPTION_EXIT 0
-#define OPTION_SENO 1
-#define OPTION_LOG_10 2
-#define OPTION_LOG_LIN 3
-#define OPTION_EXP 4
-#define OPTION_ESCALON 5
-#define OPTION_MRUA 6
-#define OPTION_PAR 7
-
-#define OPTION_SAME_PARAM 1
-#define OPTION_NEW_PARAM 2
 
 #define MSG_MAIN_MENU "Please, choose one of the following options:"
 #define MSG_MAIN_MENU_NEW_PARAM_OPTION "Change parameter"
 #define MSG_MAIN_MENU_SAME_PARAM_OPTION "Sample another function with same parameters"
 #define MSG_SAMPLE_ENDING_EXIT_OPTION "Exit program"
 
-#define MIN_CANT_SAMPLE_VALUE 0
-#define MIN_PRECIS_VALUE 0
-
 #define MSG_INVALID_INPUT "Invalid input value."
-
+#define MSG_MENU_SEP '.'
 
 #endif

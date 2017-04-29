@@ -47,53 +47,25 @@
 #define MSG_PARAM_PRES "Inserte la precisión"
 #define MSG_ERROR "El carácter ingresado no es válido."
 
-
-#define SYMBOL_EXIT_MENU_OPTION "0."
-#define SYMBOL_FST_OPTION "1."
-#define SYMBOL_SND_OPTION "2."
-#define SYMBOL_TRD_OPTION "3."
-#define SYMBOL_4TH_OPTION "4."
-#define SYMBOL_5TH_OPTION "5."
-#define SYMBOL_6TH_OPTION "6."
-#define SYMBOL_7TH_OPTION "7."
-
-
-#define SYMBOL_SAME_PARAM "1."
-#define SYMBOL_NEW_PARAM "2."
-
 #define MSG_INITIAL_FST_OPTION "Muestrear"
 #define MSG_INITIAL_EXIT_OPTION "Salir del programa"
 
-#define MSG_FUNC_MENU_FST_OPTION "Senoidal"
-#define MSG_FUNC_MENU_SND_OPTION "Logarítmica"
-#define MSG_FUNC_MENU_TRD_OPTION "Logarítmica lineal"
-#define MSG_FUNC_MENU_4TH_OPTION "Exponencial"
-#define MSG_FUNC_MENU_5TH_OPTION "Escalón"
-#define MSG_FUNC_MENU_6TH_OPTION "Movimiento rectilíneo unifórmemente acelerado"
-#define MSG_FUNC_MENU_7TH_OPTION "Paraboloide"
+#define MSG_FUNC_MENU_OPT_SEN "Senoidal"
+#define MSG_FUNC_MENU_OPT_LOG "Logarítmica"
+#define MSG_FUNC_MENU_OPT_LOG_LIN "Logarítmica lineal"
+#define MSG_FUNC_MENU_OPT_EXPON "Exponencial"
+#define MSG_FUNC_MENU_OPT_STEP "Escalón"
+#define MSG_FUNC_MENU_OPT_MRUA "Movimiento rectilíneo unifórmemente acelerado"
+#define MSG_FUNC_MENU_OPT_PARH "Paraboloide"
 #define MSG_FUNC_MENU_EXIT_OPTION "Volver al menú principal"
 #define MSG_ASK_OPTION_FUNC_MENU "Por favor, ingrese el número de opción de la función que quiere muestrear"
 
-#define OPTION_EXIT 0
-#define OPTION_SENO 1
-#define OPTION_LOG_10 2
-#define OPTION_LOG_LIN 3
-#define OPTION_EXP 4
-#define OPTION_ESCALON 5
-#define OPTION_MRUA 6
-#define OPTION_PAR 7
-
-#define OPTION_SAME_PARAM 1
-#define OPTION_NEW_PARAM 2
 
 #define MSG_MAIN_MENU "Elija una de las siguientes opciones:"
 #define MSG_MAIN_MENU_NEW_PARAM_OPTION "Muestrear función con distintos parámetros"
 #define MSG_MAIN_MENU_SAME_PARAM_OPTION "Muestrear función con los parámetros ya asignados"
 #define MSG_SAMPLE_ENDING_EXIT_OPTION "Salir del programa"
 
-#define MIN_CANT_SAMPLE_VALUE 0
-#define MIN_PRECIS_VALUE 0
-
 #define MSG_INVALID_INPUT "Valor ingresado inválido."
-
+#define MSG_MENU_SEP '.'
 #endif

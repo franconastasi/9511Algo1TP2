@@ -1,0 +1,7 @@
+#include "config.h"
+#include "lenguage.h"
+#include "funciones.h"
+#include "estados.h"
+#include "menus_func.h"
+#include "opciones.h"
+#include "contantes.h"

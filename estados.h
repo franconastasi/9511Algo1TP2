@@ -4,10 +4,10 @@
 typedef enum {
 	ST_EXIT,
 	ST_INITIAL,
-	ST_EXIT_FAILURE,
+	ST_ERROR,
 	ST_MAIN_MENU,
 	ST_ASK_PARAM,
 	ST_FUNC_MENU
-} E_ESTADO;
+} e_estado;
 
 #endif
