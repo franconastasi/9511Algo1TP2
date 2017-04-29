@@ -1,12 +1,6 @@
 #ifndef MENUSFUNC__H
 #define MENUSFUNC__H
 
-#include <stdio>
-#include <stdlib.h>
-#include "opciones.h"
-#include "contantes.h"
-#include "lenguage.h"
-
 void imprimir_menu_inicial(void);
 void imprimir_menu_principal(void);
 void pedir_tiempo_inicial(float * ti);
