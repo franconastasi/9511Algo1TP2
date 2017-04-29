@@ -1,3 +1,6 @@
+#ifndef OPCIONES__H
+#define OPCIONES__h
+
 #define OPTION_EXIT 0
 #define OPTION_SENO 1
 #define OPTION_LOG_10 2
@@ -11,3 +14,5 @@
 #define OPTION_NEW_PARAM 2
 
 #define OPTION_CONFIR 1
+
+#endif
