@@ -1,9 +1,7 @@
 #ifndef MSJ_EN__H
 #define MSJ_EN__H
 
-//#define MSG_FUNCIONES "1.Sine \n 2.Logarithm \n 3.Linear logarithm \n 4.Exponential \n 5.Step \n 6.Uniform acceleration \n 7.Paraboloid \n 0.Return to main menu"
 #define MSG_SEGUIR "Enter 0 if you wish to stop sampling."
-//#define MSG_MENU_PRINCIPAL "1.Sample \n0. Exit program"
 #define MSG_REASIG1 "The following values are the ones previously asigned to the sampling parameters (initial time, final time, sample number and precision respectively): \n"
 #define MSG_REASIG2 "Enter 1 if you wish to keep these values for your next sample."
 #define MSG_CONFIR1 "The following values are the ones asigned to the sampling parameters (initial time, final time, sample number and precision respectively): \n"
@@ -24,7 +22,6 @@
 #define MSG_HIP_DESCRIP "The parabolic function follows the following formula:\n\n (x^2) / (a^2 ) + (y^2) / (b^2)"
 #define MSG_HIP_X_A "Please, enter the parameter 'a' corresponding to x, which it must be different than zero"
 #define MSG_HIP_X_B "Please, enter the parameter 'b' corresponding to y, which it must be different than zero"
-//#define MSG_HIP_ERROR_A0B "PLease re-enter the parameter, different from 0"
 
 #define MSG_MRUA_DESCRIP "The ARM function has this form: \n\ninitial position + velocity * t + acceleration * (t^2) / 2"
 #define MSG_MRUA_ACEL "Please enter the acceleration value"
@@ -67,5 +64,9 @@
 
 #define MSG_INVALID_INPUT "Invalid input value."
 #define MSG_MENU_SEP '.'
+
+#define MSG_ASK_CONF "Whould you like to use this values for the next sample?"
+#define MSG_CONFIR_ACCEPT_PARAM "Use this parameters"
+#define MSG_CONFIR_ASK_FOR_PARAM_AGAIN "Introduce new parameters"
 
 #endif

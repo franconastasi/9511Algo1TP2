@@ -37,7 +37,8 @@ int main (void)
 				pedir_muestreo(&num_muestras);
 				delta_t = (tf - ti)/num_muestras;
 				pedir_precision(&precision);
-				confirmar_parametros(&confirmacion);
+				printf ("%s\n \n %f \n %f \n %d \n %d \n \n", MSG_CONFIR1, ti, tf, num_muestras, precision);
+				confirmar_parametros(&confirmacion, &estado);
 				break;
 
 			case ST_FUNC_MENU:
@@ -49,7 +50,7 @@ int main (void)
 						estado = ST_MAIN_MENU;
 						break;
 					case OPTION_SENO:
-						senoidal (num_muestras, precision, ti, delta_t);
+						muestrear_senoidal (num_muestras, precision, ti, delta_t);
 						estado = ST_MAIN_MENU;
 						break;
 					case OPTION_LOG_10:
@@ -61,19 +62,19 @@ int main (void)
 						estado = ST_MAIN_MENU;
 						break;
 					case OPTION_EXP:
-						expon (num_muestras, precision, ti, delta_t);
+						muestrear_expon (num_muestras, precision, ti, delta_t);
 						estado = ST_MAIN_MENU;
 						break;
 					case OPTION_ESCALON:
-						escalon (num_muestras, precision, ti, delta_t);
+						muestrear_escalon (num_muestras, precision, ti, delta_t);
 						estado = ST_MAIN_MENU;
 						break;
 					case OPTION_MRUA:
-						mrua (num_muestras, precision, ti, delta_t);
+						muestrear_mrua (num_muestras, precision, ti, delta_t);
 						estado = ST_MAIN_MENU;
 						break;
 					case OPTION_PAR:
-						parh (num_muestras, precision, ti, delta_t);
+						muestrear_parh (num_muestras, precision, ti, delta_t);
 						estado = ST_MAIN_MENU;
 						break;
 					default: 	
@@ -162,6 +163,62 @@ void imprimir_menu_funciones(void){
 
 
 
+
+void imprimir_menu_principal(void){
+	printf("\n \n \n %s\n", MSG_MAIN_MENU);
+	printf("%i %c %s\n", OPTION_SAME_PARAM, MSG_MENU_SEP, MSG_MAIN_MENU_SAME_PARAM_OPTION);
+	printf("%i %c %s\n", OPTION_NEW_PARAM, MSG_MENU_SEP, MSG_MAIN_MENU_NEW_PARAM_OPTION);
+	printf("%i %c %s\n", OPTION_EXIT, MSG_MENU_SEP, MSG_SAMPLE_ENDING_EXIT_OPTION);
+}
+
+void imprimir_menu_inicial(void){
+	printf("%i %c %s\n", OPTION_SAMPLE, MSG_MENU_SEP,  MSG_INITIAL_FST_OPTION);
+	printf("%i %c %s\n\n", OPTION_EXIT, MSG_MENU_SEP, MSG_INITIAL_EXIT_OPTION);
+}
+
+void confirmar_parametros(int * confirmacion, e_estado* estado){
+	printf("%s\n", MSG_ASK_CONF);
+	printf("%i %c %s\n",OPTION_CONFIR ,MSG_MENU_SEP ,MSG_CONFIR_ACCEPT_PARAM );
+	printf("%i %c %s\n", OPTION_CONFIR_NEW_PARAM, MSG_MENU_SEP ,MSG_CONFIR_ASK_FOR_PARAM_AGAIN );	
+	scanf ("%d", confirmacion);
+	if (*confirmacion==OPTION_CONFIR)
+	{
+		*estado = ST_FUNC_MENU;
+	}else {
+		printf("%s\n", MSG_NEGATIVE_CONFIR);
+		*estado = ST_ASK_PARAM;
+	}
+}
+
+/* funciones de muestreo */
+
+
+void muestrear_senoidal (int muestreo, int precision, float ti,float delta_t)
+{
+	int i;
+	float freq,amp,phi,fseno,time;
+
+	printf("%s\n",MSG_SENOIDAL_DESCRIP);
+
+	printf("%s\n",MSG_SENOIDAL_AMP);
+	scanf("%f",&amp);
+
+	printf("%s\n",MSG_SENOIDAL_FREQ);
+	scanf("%f",&freq);
+
+	printf("%s\n",MSG_SENOIDAL_PHI);
+	scanf("%f",&phi);
+
+	printf("%s", MSG_XFX);
+
+	for (i=0; i<muestreo ; i++) 
+	{
+		time=ti+(i*delta_t);
+		fseno=amp*(sin((PI_TIMES_TWO*freq*time)+phi));
+
+		printf("\n%2.*f\t%50.*f\n" ,precision,time,precision,fseno);
+	}
+}
 void muestrear_log_10 (float* ti, float* tf, float* delta_t, int muestreo, int precision){
 	while (*ti <= 0)
 	{
@@ -176,7 +233,7 @@ void muestrear_log_10 (float* ti, float* tf, float* delta_t, int muestreo, int p
 
 		*delta_t = (*tf - *ti)/muestreo;
 	}
-	log_10 (muestreo, precision, *ti, *delta_t);
+	imprimir_muestreo_log_10 (muestreo, precision, *ti, *delta_t);
 } 
 
 
@@ -195,95 +252,9 @@ void muestrear_log_lineal(float* ti, float* tf, float* delta_t, int muestreo, in
 		*delta_t = (*tf - *ti)/muestreo;
 	};
 
-		loglineal (muestreo, precision, *ti, *delta_t);
+		imprimir_muestreo_loglineal (muestreo, precision, *ti, *delta_t);
 }
 
-void imprimir_menu_principal(void){
-	printf("\n \n \n %s\n", MSG_MAIN_MENU);
-	printf("%i %c %s\n", OPTION_SAME_PARAM, MSG_MENU_SEP, MSG_MAIN_MENU_SAME_PARAM_OPTION);
-	printf("%i %c %s\n", OPTION_NEW_PARAM, MSG_MENU_SEP, MSG_MAIN_MENU_NEW_PARAM_OPTION);
-	printf("%i %c %s\n", OPTION_EXIT, MSG_MENU_SEP, MSG_SAMPLE_ENDING_EXIT_OPTION);
-}
-
-void imprimir_menu_inicial(void){
-	printf("%s %s\n", SYMBOL_FST_OPTION, MSG_INITIAL_FST_OPTION);
-	printf("%s %s\n\n", SYMBOL_EXIT_MENU_OPTION, MSG_INITIAL_EXIT_OPTION);
-}
-
-void confirmar_parametros(int * confirmacion){	
-	printf ("%s\n \n %f \n %f \n %d \n %d \n \n %s\n", MSG_CONFIR1, ti, tf, num_muestras, precision, MSG_CONFIR2);	
-	scanf ("%d", confirmacion);
-	if (*confirmacion==OPTION_CONFIR)
-	{
-		estado = ST_FUNC_MENU;
-	}else {
-		printf("%s\n", MSG_NEGATIVE_CONFIR);
-		estado = ST_ASK_PARAM;
-	}
-	break;
-}
-
-/* funciones de muestreo */
-
-
-void muestrear_senoidal (int muestreo, int precision, float ti,float delta_t)
-{
-	int i;
-	float freq,amp,phi,fseno,time;
-
-	printf("%s\n",MSG_SENOIDAL_DESCRIP);
-
-	printf("%s\n",MSG_SENOIDAL_AMP);
-	scanf("%f",&Amp);
-
-	printf("%s\n",MSG_SENOIDAL_FREQ);
-	scanf("%f",&freq);
-
-	printf("%s\n",MSG_SENOIDAL_PHI);
-	scanf("%f",&phi);
-
-	printf("%s", MSG_XFX);
-
-	for (i=0; i<muestreo ; i++) 
-	{
-		time=ti+(i*delta_t);
-		fseno=Amp*(sin((PI_TIMES_TWO*freq*time)+phi));
-
-		printf("\n%2.*f\t%50.*f\n" ,precision,time,precision,fseno);
-	}
-}
-
-void muestrear_loglineal (int muestreo, int precision, float ti,float delta_t)
-{
-	int i;
-	float time,floglineal;
-
-	printf("%s\n",MSG_LOGLINEAL_DESCRIP);
-
-	printf("%s", MSG_XFX);
-
-	for(i=0; i<muestreo ; i++)
-	{
-		time=ti+(i*delta_t);
-		floglineal=time*(log10(time));
-		printf("\n%2.*f\t%50.*f\n" ,precision,time,precision,floglineal);
-	}
-}
-
-void muestrear_log_10 (int muestreo, int precision, float ti,float delta_t)
-{
-	int i;
-	float time,flog_10;
-
-	printf("%s\n\n",MSG_LOG10_DESCRIP);
-
-	for(i=0; i<muestreo ; i++)
-	{
-		time=ti+(i*delta_t);
-		flog_10=log10(time);
-		printf("\n%2.*f\t%50.*f\n" ,precision,time,precision,flog_10);
-	}
-}
 
 void muestrear_mrua (int muestreo,int precision,float ti,float delta_t)
 {
@@ -311,7 +282,7 @@ void muestrear_mrua (int muestreo,int precision,float ti,float delta_t)
 	}
 }
 
-void  muestrear_expon (int muestreo, int precision, float ti,float delta_t)
+void muestrear_expon (int muestreo, int precision, float ti,float delta_t)
 {	int i;
 	float fexpon,time,k1,k2;
 
@@ -387,5 +358,36 @@ void muestrear_parh (int muestreo,int precision,float ti,float delta_t)
 		fparh = (time/x_a) * (time/x_a) + (time/x_b) * (time/x_b);
 
 		printf("\n(%.*f,%.*f)\t %50.4f\n",precision,time,precision,time,fparh);
+	}
+}
+void imprimir_muestreo_loglineal (int muestreo, int precision, float ti,float delta_t)
+{
+	int i;
+	float time,floglineal;
+
+	printf("%s\n",MSG_LOGLINEAL_DESCRIP);
+
+	printf("%s", MSG_XFX);
+
+	for(i=0; i<muestreo ; i++)
+	{
+		time=ti+(i*delta_t);
+		floglineal=time*(log10(time));
+		printf("\n%2.*f\t%50.*f\n" ,precision,time,precision,floglineal);
+	}
+}
+
+void imprimir_muestreo_log_10 (int muestreo, int precision, float ti,float delta_t)
+{
+	int i;
+	float time,flog_10;
+
+	printf("%s\n\n",MSG_LOG10_DESCRIP);
+
+	for(i=0; i<muestreo ; i++)
+	{
+		time=ti+(i*delta_t);
+		flog_10=log10(time);
+		printf("\n%2.*f\t%50.*f\n" ,precision,time,precision,flog_10);
 	}
 }

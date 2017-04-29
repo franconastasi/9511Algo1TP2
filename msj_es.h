@@ -13,8 +13,7 @@
 
 #define MSG_HIP_DESCRIP "La función parabólica es de la forma:\n\n (x^2) / (a^2 ) + (y^2) / (b^2)"
 #define MSG_HIP_X_A "Por favor, ingrese el parametro 'a' correspondiente a x, el cual debe ser distinto de 0"
-#define MSG_HIP_X_B "Por favor, ingrese el parametro 'b' correspondiente al eje y, el cual debe ser distinto de 0"
-/*#define MSG_HIP_ERROR_A0B "Por favor reingrese el parametro, siendo este distinto de 0"*/
+#define MSG_HIP_X_B "Por favor, ingrese el parametro 'b' correspondiente al eje y, el cual debe ser distinto de 0"/
 
 #define MSG_MRUA_DESCRIP "La función MRUA es de la siguiente forma: \n\nposicion_inicial + velocidad * t + aceleracion * (t^2) / 2"
 #define MSG_MRUA_ACEL "Por favor, ingrese el valor de la aceleración"
@@ -33,12 +32,10 @@
 #define MSG_SENOIDAL_PHI "Ingrese el ángulo inicial de desfasaje"
 
 #define MSG_SEGUIR "Si desea dejar de muestrear ingrese 0. Si desea continuar ingrese cualquier tecla."
-/*#define MSG_MENU_PRINCIPAL "1.Muestrear \n0.Salir del programa"*/
-/*#define MSG_FUNCIONES "\n 1.Senoidal \n 2.Logarítmica \n 3.Logarítmica lineal \n 4.Exponencial \n 5.Escalón \n 6.Movimiento rectilíneo unifórmemente acelerado  7.Paraboloide  0.Volver al menú principal"*/
 #define MSG_REASIG1 "Los siguientes son los valores de los parámetros de muestreo (tiempo inicial, tiempo final, número de muestras y presición respectivamente) asignados previamente: "
 #define MSG_REASIG2 "Ingrese 1 si quiere mantener estos mismos valores para el próximo muestreo."
 #define MSG_CONFIR1 "Los siguientes son los valores de los parámetros de muestreo (tiempo inicial, tiempo final, número de muestras y presición respectivamente) elegidos: "
-#define MSG_CONFIR2 "Ingrese 1 para confirmar que desea usar estos valores."
+
 #define MSG_NEGATIVE_CONFIR "Por favor, vuelva a ingresar los parámetros"
 #define MSG_NUEVO_INGRESO "Por favor, elija una de las opciones disponibles. "
 	
@@ -65,6 +62,10 @@
 #define MSG_MAIN_MENU_NEW_PARAM_OPTION "Muestrear función con distintos parámetros"
 #define MSG_MAIN_MENU_SAME_PARAM_OPTION "Muestrear función con los parámetros ya asignados"
 #define MSG_SAMPLE_ENDING_EXIT_OPTION "Salir del programa"
+
+#define MSG_ASK_CONF "¿Desea utiizar estos valores para realizar el proximo muestreo?"
+#define MSG_CONFIR_ACCEPT_PARAM "Confirmar"
+#define MSG_CONFIR_ASK_FOR_PARAM_AGAIN "Volver a ingresar parámetros"
 
 #define MSG_INVALID_INPUT "Valor ingresado inválido."
 #define MSG_MENU_SEP '.'

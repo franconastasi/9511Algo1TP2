@@ -14,5 +14,8 @@
 #define OPTION_NEW_PARAM 2
 
 #define OPTION_CONFIR 1
+#define OPTION_CONFIR_NEW_PARAM 0
+
+#define OPTION_SAMPLE 1
 
 #endif
