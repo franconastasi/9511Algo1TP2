@@ -7,7 +7,7 @@
 #include "contantes.h"
 #include "lenguage.h"
 #include "estados.h"
-
+#include "menus_func.h"
 
 
 void parametros (void);
