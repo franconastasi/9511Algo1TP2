@@ -1,5 +1,5 @@
-#ifndef FUNCIONES__H
-#define FUNCIONES__H 
+#ifndef MUESTREADOR__H
+#define MUESTREADOR__H 
 
 #include <stdio>
 #include <stdlib.h>
