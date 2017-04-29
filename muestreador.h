@@ -6,6 +6,8 @@
 #include "opciones.h"
 #include "contantes.h"
 #include "lenguage.h"
+#include "estados.h"
+
 
 
 void parametros (void);
