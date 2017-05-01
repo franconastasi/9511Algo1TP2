@@ -13,7 +13,7 @@
 
 #define MSG_HIP_DESCRIP "La función parabólica es de la forma:\n\n (x^2) / (a^2 ) + (y^2) / (b^2)"
 #define MSG_HIP_X_A "Por favor, ingrese el parametro 'a' correspondiente a x, el cual debe ser distinto de 0"
-#define MSG_HIP_X_B "Por favor, ingrese el parametro 'b' correspondiente al eje y, el cual debe ser distinto de 0"/
+#define MSG_HIP_X_B "Por favor, ingrese el parametro 'b' correspondiente al eje y, el cual debe ser distinto de 0"
 
 #define MSG_MRUA_DESCRIP "La función MRUA es de la siguiente forma: \n\nposicion_inicial + velocidad * t + aceleracion * (t^2) / 2"
 #define MSG_MRUA_ACEL "Por favor, ingrese el valor de la aceleración"

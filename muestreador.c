@@ -341,7 +341,7 @@ void muestrear_parh (int muestreo,int precision,float ti,float delta_t)
 
 	do
 	{
-		printf("%s\n",MSG_HIP_X_B );
+		printf("%s\n",MSG_HIP_X_B);
 		scanf("%f",&x_b);
 		if (x_b==0)
 		{

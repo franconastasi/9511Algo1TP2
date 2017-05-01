@@ -1,5 +1,5 @@
 #ifndef OPCIONES__H
-#define OPCIONES__h
+#define OPCIONES__H
 
 #define OPTION_EXIT 0
 #define OPTION_SENO 1
